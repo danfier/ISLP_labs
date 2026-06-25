@@ -37,23 +37,22 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 2,
+      "execution_count": 3,
       "id": "71bd6b71",
       "metadata": {
         "lines_to_next_cell": 2,
         "id": "71bd6b71",
+        "outputId": "bc0ca395-1128-456d-a552-8da6f8314043",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        },
-        "outputId": "6c1f4ffd-4ddf-40d0-b74a-8ee943300f26"
+        }
       },
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Collecting ISLP\n",
-            "  Downloading islp-0.4.1-py3-none-any.whl.metadata (7.1 kB)\n",
+            "Requirement already satisfied: ISLP in /usr/local/lib/python3.12/dist-packages (0.4.1)\n",
             "Requirement already satisfied: numpy>=1.7.1 in /usr/local/lib/python3.12/dist-packages (from ISLP) (2.0.2)\n",
             "Requirement already satisfied: scipy>=0.9 in /usr/local/lib/python3.12/dist-packages (from ISLP) (1.16.3)\n",
             "Requirement already satisfied: pandas>=1.5 in /usr/local/lib/python3.12/dist-packages (from ISLP) (2.2.2)\n",
@@ -61,15 +60,11 @@
             "Requirement already satisfied: scikit-learn>=1.2 in /usr/local/lib/python3.12/dist-packages (from ISLP) (1.6.1)\n",
             "Requirement already satisfied: joblib in /usr/local/lib/python3.12/dist-packages (from ISLP) (1.5.3)\n",
             "Requirement already satisfied: statsmodels>=0.13 in /usr/local/lib/python3.12/dist-packages (from ISLP) (0.14.6)\n",
-            "Collecting lifelines (from ISLP)\n",
-            "  Downloading lifelines-0.30.3-py3-none-any.whl.metadata (3.5 kB)\n",
-            "Collecting pygam (from ISLP)\n",
-            "  Downloading pygam-0.12.0-py3-none-any.whl.metadata (9.8 kB)\n",
-            "Requirement already satisfied: torch in /usr/local/lib/python3.12/dist-packages (from ISLP) (2.11.0+cpu)\n",
-            "Collecting pytorch_lightning (from ISLP)\n",
-            "  Downloading pytorch_lightning-2.6.5-py3-none-any.whl.metadata (21 kB)\n",
-            "Collecting torchmetrics (from ISLP)\n",
-            "  Downloading torchmetrics-1.9.0-py3-none-any.whl.metadata (23 kB)\n",
+            "Requirement already satisfied: lifelines in /usr/local/lib/python3.12/dist-packages (from ISLP) (0.30.3)\n",
+            "Requirement already satisfied: pygam in /usr/local/lib/python3.12/dist-packages (from ISLP) (0.12.0)\n",
+            "Requirement already satisfied: torch in /usr/local/lib/python3.12/dist-packages (from ISLP) (2.11.0+cu128)\n",
+            "Requirement already satisfied: pytorch_lightning in /usr/local/lib/python3.12/dist-packages (from ISLP) (2.6.5)\n",
+            "Requirement already satisfied: torchmetrics in /usr/local/lib/python3.12/dist-packages (from ISLP) (1.9.0)\n",
             "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas>=1.5->ISLP) (2.9.0.post0)\n",
             "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas>=1.5->ISLP) (2025.2)\n",
             "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas>=1.5->ISLP) (2026.2)\n",
@@ -78,25 +73,39 @@
             "Requirement already satisfied: packaging>=21.3 in /usr/local/lib/python3.12/dist-packages (from statsmodels>=0.13->ISLP) (26.2)\n",
             "Requirement already satisfied: matplotlib>=3.0 in /usr/local/lib/python3.12/dist-packages (from lifelines->ISLP) (3.10.0)\n",
             "Requirement already satisfied: autograd>=1.5 in /usr/local/lib/python3.12/dist-packages (from lifelines->ISLP) (1.8.0)\n",
-            "Collecting autograd-gamma>=0.3 (from lifelines->ISLP)\n",
-            "  Downloading autograd-gamma-0.5.0.tar.gz (4.0 kB)\n",
-            "  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
-            "Collecting formulaic>=0.2.2 (from lifelines->ISLP)\n",
-            "  Downloading formulaic-1.2.2-py3-none-any.whl.metadata (7.0 kB)\n",
+            "Requirement already satisfied: autograd-gamma>=0.3 in /usr/local/lib/python3.12/dist-packages (from lifelines->ISLP) (0.5.0)\n",
+            "Requirement already satisfied: formulaic>=0.2.2 in /usr/local/lib/python3.12/dist-packages (from lifelines->ISLP) (1.2.2)\n",
             "Requirement already satisfied: progressbar2<5,>=4.2.0 in /usr/local/lib/python3.12/dist-packages (from pygam->ISLP) (4.5.0)\n",
             "Requirement already satisfied: tqdm>=4.57.0 in /usr/local/lib/python3.12/dist-packages (from pytorch_lightning->ISLP) (4.67.3)\n",
             "Requirement already satisfied: PyYAML>5.4 in /usr/local/lib/python3.12/dist-packages (from pytorch_lightning->ISLP) (6.0.3)\n",
             "Requirement already satisfied: fsspec>=2022.5.0 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]>=2022.5.0->pytorch_lightning->ISLP) (2025.3.0)\n",
             "Requirement already satisfied: typing-extensions>4.5.0 in /usr/local/lib/python3.12/dist-packages (from pytorch_lightning->ISLP) (4.15.0)\n",
-            "Collecting lightning-utilities>=0.10.0 (from pytorch_lightning->ISLP)\n",
-            "  Downloading lightning_utilities-0.15.3-py3-none-any.whl.metadata (5.5 kB)\n",
+            "Requirement already satisfied: lightning-utilities>=0.10.0 in /usr/local/lib/python3.12/dist-packages (from pytorch_lightning->ISLP) (0.15.3)\n",
             "Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (3.29.3)\n",
             "Requirement already satisfied: setuptools<82 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (75.2.0)\n",
             "Requirement already satisfied: sympy>=1.13.3 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (1.14.0)\n",
             "Requirement already satisfied: networkx>=2.5.1 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (3.6.1)\n",
             "Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (3.1.6)\n",
-            "Collecting interface-meta>=1.2.0 (from formulaic>=0.2.2->lifelines->ISLP)\n",
-            "  Downloading interface_meta-2.0.1-py3-none-any.whl.metadata (6.4 kB)\n",
+            "Requirement already satisfied: cuda-toolkit==12.8.1 in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (12.8.1)\n",
+            "Requirement already satisfied: cuda-bindings<13,>=12.9.4 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (12.9.7)\n",
+            "Requirement already satisfied: nvidia-cudnn-cu12==9.19.0.56 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (9.19.0.56)\n",
+            "Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (0.7.1)\n",
+            "Requirement already satisfied: nvidia-nccl-cu12==2.28.9 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (2.28.9)\n",
+            "Requirement already satisfied: nvidia-nvshmem-cu12==3.4.5 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (3.4.5)\n",
+            "Requirement already satisfied: triton==3.6.0 in /usr/local/lib/python3.12/dist-packages (from torch->ISLP) (3.6.0)\n",
+            "Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (12.8.4.1)\n",
+            "Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (12.8.90)\n",
+            "Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (11.3.3.83)\n",
+            "Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (1.13.1.3)\n",
+            "Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (12.8.90)\n",
+            "Requirement already satisfied: nvidia-curand-cu12==10.3.9.90.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (10.3.9.90)\n",
+            "Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (11.7.3.90)\n",
+            "Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (12.5.8.93)\n",
+            "Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (12.8.93)\n",
+            "Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (12.8.93)\n",
+            "Requirement already satisfied: nvidia-nvtx-cu12==12.8.90.* in /usr/local/lib/python3.12/dist-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == \"Linux\"->torch->ISLP) (12.8.90)\n",
+            "Requirement already satisfied: cuda-pathfinder~=1.1 in /usr/local/lib/python3.12/dist-packages (from cuda-bindings<13,>=12.9.4->torch->ISLP) (1.5.5)\n",
+            "Requirement already satisfied: interface-meta>=1.2.0 in /usr/local/lib/python3.12/dist-packages (from formulaic>=0.2.2->lifelines->ISLP) (2.0.1)\n",
             "Requirement already satisfied: narwhals>=1.17 in /usr/local/lib/python3.12/dist-packages (from formulaic>=0.2.2->lifelines->ISLP) (2.22.1)\n",
             "Requirement already satisfied: wrapt>=1.0 in /usr/local/lib/python3.12/dist-packages (from formulaic>=0.2.2->lifelines->ISLP) (2.2.1)\n",
             "Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]>=2022.5.0->pytorch_lightning->ISLP) (3.14.1)\n",
@@ -117,28 +126,7 @@
             "Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch_lightning->ISLP) (6.7.1)\n",
             "Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch_lightning->ISLP) (0.5.2)\n",
             "Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch_lightning->ISLP) (1.24.2)\n",
-            "Requirement already satisfied: idna>=2.0 in /usr/local/lib/python3.12/dist-packages (from yarl<2.0,>=1.17.0->aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch_lightning->ISLP) (3.18)\n",
-            "Downloading islp-0.4.1-py3-none-any.whl (16.6 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m16.6/16.6 MB\u001b[0m \u001b[31m38.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading lifelines-0.30.3-py3-none-any.whl (409 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m409.1/409.1 kB\u001b[0m \u001b[31m17.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading pygam-0.12.0-py3-none-any.whl (84 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m84.6/84.6 kB\u001b[0m \u001b[31m4.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading pytorch_lightning-2.6.5-py3-none-any.whl (852 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m852.4/852.4 kB\u001b[0m \u001b[31m31.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading torchmetrics-1.9.0-py3-none-any.whl (983 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m983.4/983.4 kB\u001b[0m \u001b[31m15.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading formulaic-1.2.2-py3-none-any.whl (118 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m118.9/118.9 kB\u001b[0m \u001b[31m4.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading lightning_utilities-0.15.3-py3-none-any.whl (31 kB)\n",
-            "Downloading interface_meta-2.0.1-py3-none-any.whl (15 kB)\n",
-            "Building wheels for collected packages: autograd-gamma\n",
-            "  Building wheel for autograd-gamma (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
-            "  Created wheel for autograd-gamma: filename=autograd_gamma-0.5.0-py3-none-any.whl size=4030 sha256=96862dee1dc10517b9536816af5aad3991a33cdd789648eed9862e51dd32d3c8\n",
-            "  Stored in directory: /root/.cache/pip/wheels/50/37/21/0a719b9d89c635e89ff24bd93b862882ad675279552013b2fb\n",
-            "Successfully built autograd-gamma\n",
-            "Installing collected packages: lightning-utilities, interface-meta, autograd-gamma, torchmetrics, pygam, formulaic, pytorch_lightning, lifelines, ISLP\n",
-            "Successfully installed ISLP-0.4.1 autograd-gamma-0.5.0 formulaic-1.2.2 interface-meta-2.0.1 lifelines-0.30.3 lightning-utilities-0.15.3 pygam-0.12.0 pytorch_lightning-2.6.5 torchmetrics-1.9.0\n"
+            "Requirement already satisfied: idna>=2.0 in /usr/local/lib/python3.12/dist-packages (from yarl<2.0,>=1.17.0->aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch_lightning->ISLP) (3.18)\n"
           ]
         }
       ],
@@ -5501,8 +5489,7 @@
       "formats": "ipynb"
     },
     "kernelspec": {
-      "display_name": "Python 3 (ipykernel)",
-      "language": "python",
+      "display_name": "Python 3",
       "name": "python3"
     },
     "language_info": {
@@ -5518,8 +5505,10 @@
       "version": "3.11.4"
     },
     "colab": {
-      "provenance": []
-    }
+      "provenance": [],
+      "gpuType": "T4"
+    },
+    "accelerator": "GPU"
   },
   "nbformat": 4,
   "nbformat_minor": 5
